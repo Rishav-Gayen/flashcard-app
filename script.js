@@ -234,6 +234,9 @@ function shuffle() {
 
 function resetProgress () {
     state.mastered = [];
+    state.visited = [];
+    state.historyIndex = -1;
+    updateDashboard();
 }
 
 categorySelect.addEventListener('change', () => {
