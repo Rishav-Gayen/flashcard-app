@@ -159,12 +159,3 @@ This project demonstrates understanding of:
 * Migrate state to a reducer pattern
 * Rebuild UI using React (logic already compatible)
 
----
-
-## 📌 Final Note
-
-This project was built to **understand how applications actually work**, not just to render UI.
-
-If you can reason about this codebase, you can reason about any frontend framework.
-
----
