@@ -1,0 +1,183 @@
+[
+  {
+    "category": "Web Development",
+    "questions": [
+      {
+        "front": "What does HTML stand for?",
+        "back": "HyperText Markup Language"
+      },
+      {
+        "front": "What is the purpose of CSS?",
+        "back": "To style and layout web pages"
+      },
+      {
+        "front": "What is a responsive website?",
+        "back": "A website that adapts to different screen sizes"
+      },
+      {
+        "front": "What is the DOM?",
+        "back": "Document Object Model"
+      },
+      {
+        "front": "What are semantic HTML elements?",
+        "back": "Elements that clearly describe their meaning"
+      },
+      {
+        "front": "What is a CSS framework?",
+        "back": "A pre-prepared library for easier styling"
+      },
+      {
+        "front": "What is JavaScript used for?",
+        "back": "To add interactivity and dynamic behavior"
+      },
+      {
+        "front": "What is an API endpoint?",
+        "back": "A specific URL where an API can be accessed"
+      }
+    ]
+  },
+  {
+    "category": "Computer Science",
+    "questions": [
+      {
+        "front": "What is Big O notation?",
+        "back": "A mathematical notation"
+      },
+      {
+        "front": "What is a data structure?",
+        "back": "A way of organizing and storing data"
+      },
+      {
+        "front": "What is the difference between a stack and a queue?",
+        "back": "Stack is LIFO, Queue is FIFO"
+      },
+      {
+        "front": "What is a binary tree?",
+        "back": "A tree data structure"
+      },
+      {
+        "front": "What is recursion?",
+        "back": "A function calling itself directly or indirectly"
+      },
+      {
+        "front": "What is object-oriented programming?",
+        "back": "A programming paradigm based on objects"
+      },
+      {
+        "front": "What is time complexity?",
+        "back": "The computational complexity"
+      },
+      {
+        "front": "What is a hash table?",
+        "back": "A data structure"
+      }
+    ]
+  },
+  {
+    "category": "Biology",
+    "questions": [
+      {
+        "front": "What is the powerhouse of the cell?",
+        "back": "Mitochondria"
+      },
+      {
+        "front": "What is DNA?",
+        "back": "Deoxyribonucleic Acid"
+      },
+      {
+        "front": "What is photosynthesis?",
+        "back": "How plants convert sunlight into energy"
+      },
+      {
+        "front": "Four types of biological macromolecules?",
+        "back": "Carbohydrates, lipids, proteins, nucleic acids"
+      },
+      {
+        "front": "What is homeostasis?",
+        "back": "The ability to maintain a stable internal environment"
+      },
+      {
+        "front": "What is natural selection?",
+        "back": "Survival of the fittest"
+      },
+      {
+        "front": "What is an ecosystem?",
+        "back": "A biological community of interacting organisms and their physical environment"
+      },
+      {
+        "front": "What is cellular respiration?",
+        "back": "Process by which cells convert nutrients into energy (ATP)"
+      }
+    ]
+  },
+  {
+    "category": "World History",
+    "questions": [
+      {
+        "front": "When did World War I begin?",
+        "back": "1914"
+      },
+      {
+        "front": "What ancient civilization built the pyramids?",
+        "back": "Ancient Egyptians"
+      },
+      {
+        "front": "Who was the first emperor of China?",
+        "back": "Qin Shi Huang"
+      },
+      {
+        "front": "What was the Renaissance?",
+        "back": "Cultural, artistic, political and economic rebirth in Europe"
+      },
+      {
+        "front": "When did the Berlin Wall fall?",
+        "back": "1989"
+      },
+      {
+        "front": "What empire was ruled by Julius Caesar?",
+        "back": "Roman Empire"
+      },
+      {
+        "front": "What was the Industrial Revolution?",
+        "back": "Transition to new manufacturing processes in the 18th-19th centuries"
+      },
+      {
+        "front": "Who discovered America?",
+        "back": "Christopher Columbus"
+      }
+    ]
+  },
+  {
+    "category": "Mathematics",
+    "questions": [
+      {
+        "front": "What is the Pythagorean theorem?",
+        "back": "a² + b² = c²"
+      },
+      {
+        "front": "What is the value of π to two decimal places?",
+        "back": "3.14"
+      },
+      {
+        "front": "What is calculus?",
+        "back": "A branch of mathematics focusing"
+      },
+      {
+        "front": "What is the quadratic formula?",
+        "back": "x = [-b ± √(b² - 4ac)] / 2a"
+      },
+      {
+        "front": "What is a derivative?",
+        "back": "how a function changes as its input changes"
+      },
+      {
+        "front": "What are integers?",
+        "back": "Whole numbers including negatives, zero, and positives"
+      },
+      {
+        "front": "What is probability?",
+        "back": "The measure of the likelihood that an event will occur"
+      }
+    ]
+  }
+]

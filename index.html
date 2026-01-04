@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Flashcard</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <div class="logo">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <h1 class="main-heading">Flashcard</h1>
+      </div>
+
+      <div class="study-mode-toggle">
+        <p class="study-mode" id="study">Study Mode</p>
+        <p class="study-mode study-mode-active" id="all">All Cards</p>
+      </div>
+    </nav>
+
+    <div class="main-section">
+      <div class="flashcard-section">
+        <div class="action-top">
+          <div class="action-button-categories">
+            <select id="category-select" class="category-select">
+            </select>
+          </div>
+
+          <div class="action-button-hide-mastered">
+            <label for="hide-mastered">Hide mastered</label>
+            <input type="checkbox" name="hide-mastered" id="hide-mastered" />
+          </div>
+
+          <div class="action-button-shuffle">
+            Shuffle <i class="fa-solid fa-shuffle"></i>
+          </div>
+        </div>
+
+        <div class="card-parent">
+          <div class="card-section fill-pink">
+            <p class="category-tag">Web Development</p>
+
+            <div class="card-text-section">
+              <h2 class="card-text">What is HTML for ?</h2>
+
+              <p class="card-cta">Click to reveal answer</p>
+            </div>
+
+            <div class="progress-section">
+              <div class="progress-container ">
+                <div class="progress-bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <div class="action-button-know fill-yellow">
+            <i class="fa-regular fa-circle-check"></i> <span class="know-text">I Know This</span>
+          </div>
+
+          <div class="action-button-reset">
+            <i class="fa-solid fa-rotate-left"></i> 
+            <span class="reset-text">Reset Progress</span>
+          </div>
+        </div>
+
+        <div class="action-bottom">
+          <div class="action-button-left">
+            <i class="fa-solid fa-angle-left"></i> Previous
+          </div>
+
+          <p class="card-info">Card 1 of 40</p>
+
+          <div class="action-button-right">
+            Next <i class="fa-solid fa-angle-right"></i>
+          </div>
+        </div>
+      </div>
+
+      <aside class="statistic-section">
+        <h2 class="statistic-section-heading">Study Statistics</h2>
+
+        <div class="statistic-cards">
+          <div class="study-statistic">
+            <div class="study-statistic-label">
+              <p class="study-statistic-label-heading">Total Cards</p>
+              <p class="study-statistic-number" id="totalCards">40</p>
+            </div>
+
+            <div class="study-statistic-icon fill-blue">
+              <i class="fa-brands fa-stack-overflow"></i>
+            </div>
+          </div>
+
+          <div class="study-statistic">
+            <div class="study-statistic-label">
+              <p class="study-statistic-label-heading">Mastered</p>
+              <p class="study-statistic-number" id="masteredCards">11</p>
+            </div>
+
+            <div class="study-statistic-icon fill-turquoise">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+          </div>
+
+          <div class="study-statistic">
+            <div class="study-statistic-label">
+              <p class="study-statistic-label-heading">In Progress</p>
+              <p class="study-statistic-number" id="inProgressCards">21</p>
+            </div>
+
+            <div class="study-statistic-icon fill-pink-strong">
+              <i class="fa-solid fa-book"></i>
+            </div>
+          </div>
+
+          <div class="study-statistic">
+            <div class="study-statistic-label">
+              <p class="study-statistic-label-heading">Not started</p>
+              <p class="study-statistic-number" id="notStarted">8</p>
+            </div>
+
+            <div class="study-statistic-icon fill-pink">
+              <i class="fa-solid fa-inbox"></i>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
