@@ -28,7 +28,10 @@ const state = {
     visited: [],
     historyIndex: -1,
     totalQuestions: calculateTotalQuestions(),
-    mode: 'all'
+    mode: 'all',
+    categoryTotal: function() { // Add this computed property
+        return getCategoryTotalQuestions(this.category);
+    }
 }
 
 
@@ -63,6 +66,19 @@ function calculateTotalQuestions() {
     return totalQues;
 }
 
+function getCategoryTotalQuestions(category) {
+    if (category === 'All Categories') {
+        return state.totalQuestions;
+    }
+    
+    for(let data of flashCardData) {
+        if (data.category === category) {
+            return data.questions.length;
+        }
+    }
+    return 0;
+}
+
 function addToMastered(card) {
     if (card.isTerminal) return;
 
@@ -86,7 +102,8 @@ function updateDashboard() {
 }
 
 function updateCardInfo() {
-    cardInfo.textContent = `Card ${state.visited.length + 1} of ${state.totalQuestions}`;
+    const categoryTotal = getCategoryTotalQuestions(state.category);
+    cardInfo.textContent = `Card ${state.historyIndex + 1} of ${categoryTotal}`;
 }
 
 function populate() {
@@ -104,8 +121,15 @@ function populate() {
 }
 
 function displayQuestion() {
-    cardText.textContent = state.question.question.front;
-    categoryTag.textContent = state.question.category;
+    if (state.question.isTerminal) {
+        cardText.textContent = state.question.question.front;
+        categoryTag.textContent = state.question.category;
+        cardInfo.textContent = `Card 0 of ${getCategoryTotalQuestions(state.category)}`;
+    } else {
+        cardText.textContent = state.question.question.front;
+        categoryTag.textContent = state.question.category;
+        updateCardInfo();
+    }
 }
 
 
@@ -172,8 +196,6 @@ function previousCard() {
 }
 
 function nextCard() {
-    // If we're going back in history and then click "Next"
-    // we should NOT generate a new card yet
     if (state.historyIndex < state.visited.length - 1) {
         state.historyIndex++;
         state.question = state.visited[state.historyIndex];
@@ -202,8 +224,10 @@ function mastered() {
     if (state.question?.isTerminal) return;
 
     addToMastered(state.question);
+    
+    // Get next card after mastering current one
     state.question = getRandomCard(state.category, flashCardData);
-
+    
     document.querySelector('.know-text').textContent = 'Mastered !';
     know.style.pointerEvents = 'none';
 
@@ -211,8 +235,8 @@ function mastered() {
         document.querySelector('.know-text').textContent = 'I Know This';
         know.style.pointerEvents = 'auto';        
     }, 2000);
-
-
+    
+    // Update the display with the new card
     displayQuestion();
 }
 
@@ -242,16 +266,32 @@ function resetProgress () {
 categorySelect.addEventListener('change', () => {
     const selectedIndex = categorySelect.selectedIndex;
     const option = document.getElementsByTagName('option')[selectedIndex].value;
+    
+    // Reset visited history for new category
+    state.visited = [];
+    state.historyIndex = -1;
+    
     const card = getRandomCard(option, flashCardData);
-
     state.question = card;
     state.category = option;
+    
+    // Add first card of new category to visited
+    if (card && !card.isTerminal) {
+        state.visited.push(card);
+        state.historyIndex = 0;
+    }
+    
     displayQuestion();
-})
+    updateCardInfo();
+});
 
 
 cardSection.addEventListener('click', () => {
+    // Check if it's a terminal card before trying to access .back
+    if (state.question?.isTerminal) return;
+    
     cardText.textContent = state.question.question.back;
+    // ... rest of the code remains the same
     cardSection.classList.remove('fill-pink');
     cardSection.classList.add('fill-cream');
     cardSection.classList.add('animate__animated');
@@ -266,11 +306,10 @@ cardSection.addEventListener('click', () => {
         cardSection.classList.remove('animate__flipInX');
         cardCta.textContent = 'Click to reveal answer';
     }, 2000);
-})
+});
 
 know.addEventListener('click', () => {
     mastered();
-    console.log(state.mastered);
     updateDashboard()
 })
 
@@ -330,12 +369,16 @@ all.addEventListener('click', () => {
     study.classList.remove('study-mode-active');
 })
 
-populate()
+populate();
 state.question = getRandomCard(state.category, flashCardData);
+
+if (state.question && !state.question.isTerminal) {
+    state.visited.push(state.question);
+    state.historyIndex = 0;
+}
 displayQuestion();
 updateDashboard();
 updateCardInfo();
-
 
 
 
