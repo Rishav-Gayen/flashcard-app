@@ -103,7 +103,7 @@ function updateDashboard() {
 
 function updateCardInfo() {
     const categoryTotal = getCategoryTotalQuestions(state.category);
-    cardInfo.textContent = `Card ${state.historyIndex + 1} of ${categoryTotal}`;
+    cardInfo.textContent = `Card ${state.historyIndex === -1 ? state.historyIndex + 2 : state.historyIndex + 1} of ${categoryTotal}`;
 }
 
 function populate() {
@@ -225,9 +225,6 @@ function mastered() {
 
     addToMastered(state.question);
     
-    // Get next card after mastering current one
-    state.question = getRandomCard(state.category, flashCardData);
-    
     document.querySelector('.know-text').textContent = 'Mastered !';
     know.style.pointerEvents = 'none';
 
@@ -236,8 +233,6 @@ function mastered() {
         know.style.pointerEvents = 'auto';        
     }, 2000);
     
-    // Update the display with the new card
-    displayQuestion();
 }
 
 function shuffle() {
